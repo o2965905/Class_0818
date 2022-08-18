@@ -78,6 +78,21 @@
     </script>
     <script src="./myToken/my.js"></script>
     <script>
+        // 加入判斷是 判斷 白天 或 晚上
+        // 0 = 晚上
+        // 6 = 白天
+        // 12 = 白天
+        // 18 = 晚上
+
+        const hourArr=[];
+        hourArr[0] = '凌晨';
+        hourArr[6] = '白天';
+        hourArr[12] = '下午';
+        hourArr[18] = '晚上';
+        console.log('hourArr',hourArr);
+        console.log('hourArr',hourArr[0]);
+
+
         // ajax
         $.ajax({
             dataType: 'json',
