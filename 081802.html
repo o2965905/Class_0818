@@ -32,6 +32,7 @@
 <body>
     <!-------------------------------------------------------- 內容 -------------------------------------------------------->
 <div class="container">
+    <!-- title -->
     <div class="row">
         <div class="col-12">
             <h3 class="text-center">天氣資料</h3>
@@ -39,10 +40,29 @@
     </div>
 </div>
 <div class="container">
+    <!-- table -->
 <table class="table table-striped">
     <tbody>
         <tr>
-            <td>123</td>
+            <td>ID</td>
+            <td>縣市</td>
+            <td>天氣狀況(Wx)</td>
+            <td>降雨機率(PoP)</td>
+            <td>最低溫(MinT)</td>
+            <td>舒適度(CI)</td>
+            <td>最高溫(MaxT)</td>
+            <!-- 天氣現象 Wx -->
+            <!-- 最低溫度 MinT -->
+            <!-- 最高溫度 MaxT -->
+            <!-- 舒適度 Cl -->
+            <!-- 降雨機率 PoP -->
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>嘉義市</td>
+            <td>天氣現象</td>
+            <td>最低溫度</td>
+            <td>降雨機率</td>
         </tr>
     </tbody>
 </table>
@@ -60,52 +80,23 @@
             url: 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-C0ECFB19-DA53-46EF-BC76-146F83535780',
             // data: 
             success: function (res) {
-                console.log(res);
-                console.log(res.records.location);
+                // console.log(res);
+                // console.log(res.records.location);
 
                 let data = res.records.location;
-                // 方法二
-                $('#table_id').DataTable({
-                    data: data,
-                    columns: [{
-                            data: 'locationName',
-                            title: '55688'
-
-                        },
-                        {
-                            data: 'locationName',
-                            title: 'locationName'
-                        },
-
-                    ],
-                    language: {
-                        "lengthMenu": "顯示 _MENU_ 筆資料",
-                        "sProcessing": "處理中...",
-                        "sZeroRecords": "没有匹配结果",
-                        "sInfo": "目前有 _MAX_ 筆資料",
-                        "sInfoEmpty": "目前共有 0 筆紀錄",
-                        "sInfoFiltered": " ",
-                        "sInfoPostFix": "",
-                        "sSearch": "搜尋:",
-                        "sUrl": "",
-                        "sEmptyTable": "尚未有資料紀錄存在",
-                        "sLoadingRecords": "載入資料中...",
-                        "sInfoThousands": ",",
-                        "oPaginate": {
-                            "sFirst": "首頁",
-                            "sPrevious": "上一頁",
-                            "sNext": "下一頁",
-                            "sLast": "末頁"
-                        },
-                        "order": [
-                            [0, "desc"]
-                        ],
-                        "oAria": {
-                            "sSortAscending": ": 以升序排列此列",
-                            "sSortDescending": ": 以降序排列此列"
-                        }
-                    },
-                });
+                console.log('data',data)
+                // 天氣狀況 Wx
+                console.log('data[0]',data[0]['weatherElement'][0].time[0].parameter.parameterName)
+                // 降雨百分比 PoP
+                console.log('data[0]',data[0]['weatherElement'][1].time[0].parameter.parameterName)
+                // 最低溫度 MinT
+                console.log('data[0]',data[0]['weatherElement'][2].time[0].parameter.parameterName)
+                // 舒適度 CI
+                console.log('data[0]',data[0]['weatherElement'][3].time[0].parameter.parameterName)
+                // 最高溫度 MaxT
+                console.log('data[0]',data[0]['weatherElement'][4].time[0].parameter.parameterName)
+                
+               
             }
         })
     </script>
