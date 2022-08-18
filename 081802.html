@@ -57,7 +57,7 @@
                     <!-- 舒適度 Cl -->
                     <!-- 降雨機率 PoP -->
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>1</td>
                     <td>嘉義市</td>
                     <td>天氣狀況(Wx)
@@ -67,7 +67,7 @@
                     <td>最低溫(MinT)</td>
                     <td>舒適度(CI)</td>
                     <td>最高溫(MaxT)</td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </div>
@@ -100,21 +100,23 @@
                 // 最高溫度 MaxT
                 console.log('data[0]', data[0]['weatherElement'][4].time[0].parameter.parameterName)
 
+                for(let i=0;i<data.length;i++){
                 $('tbody').append(
                             `       
                              <tr>
-                                <td>1</td>
-                                <td>${data[0].locationName}</td>
-                                <td>${data[0]['weatherElement'][0].time[0].parameter.parameterName}
-                                    <img src="./img/day/${data[0]['weatherElement'][0].time[0].parameter.parameterValue}.svg">    
+                                <td>${i+1}</td>
+                                <td>${data[i].locationName}</td>
+                                <td>${data[i]['weatherElement'][0].time[0].parameter.parameterName}
+                                    <img src="./img/day/${data[i]['weatherElement'][0].time[0].parameter.parameterValue}.svg">    
                                 </td>
-                                <td>${data[0]['weatherElement'][1].time[0].parameter.parameterName}</td>
-                                <td>${data[0]['weatherElement'][2].time[0].parameter.parameterName}</td>
-                                <td>${data[0]['weatherElement'][3].time[0].parameter.parameterName}</td>
-                                <td>${data[0]['weatherElement'][4].time[0].parameter.parameterName}</td>
+                                <td>${data[i]['weatherElement'][1].time[0].parameter.parameterName}</td>
+                                <td>${data[i]['weatherElement'][2].time[0].parameter.parameterName}</td>
+                                <td>${data[i]['weatherElement'][3].time[0].parameter.parameterName}</td>
+                                <td>${data[i]['weatherElement'][4].time[0].parameter.parameterName}</td>
                             </tr>
                             `
                 )
+            }
 
             }
         })
