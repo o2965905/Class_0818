@@ -31,42 +31,44 @@
 
 <body>
     <!-------------------------------------------------------- 內容 -------------------------------------------------------->
-<div class="container">
-    <!-- title -->
-    <div class="row">
-        <div class="col-12">
-            <h3 class="text-center">天氣資料</h3>
+    <div class="container">
+        <!-- title -->
+        <div class="row">
+            <div class="col-12">
+                <h3 class="text-center">天氣資料</h3>
+            </div>
         </div>
     </div>
-</div>
-<div class="container">
-    <!-- table -->
-<table class="table table-striped">
-    <tbody>
-        <tr>
-            <td>ID</td>
-            <td>縣市</td>
-            <td>天氣狀況(Wx)</td>
-            <td>降雨機率(PoP)</td>
-            <td>最低溫(MinT)</td>
-            <td>舒適度(CI)</td>
-            <td>最高溫(MaxT)</td>
-            <!-- 天氣現象 Wx -->
-            <!-- 最低溫度 MinT -->
-            <!-- 最高溫度 MaxT -->
-            <!-- 舒適度 Cl -->
-            <!-- 降雨機率 PoP -->
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>嘉義市</td>
-            <td>天氣現象</td>
-            <td>最低溫度</td>
-            <td>降雨機率</td>
-        </tr>
-    </tbody>
-</table>
-</div>
+    <div class="container">
+        <!-- table -->
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <td>ID</td>
+                    <td>縣市</td>
+                    <td>天氣狀況(Wx)</td>
+                    <td>降雨機率(PoP)</td>
+                    <td>最低溫(MinT)</td>
+                    <td>舒適度(CI)</td>
+                    <td>最高溫(MaxT)</td>
+                    <!-- 天氣現象 Wx -->
+                    <!-- 最低溫度 MinT -->
+                    <!-- 最高溫度 MaxT -->
+                    <!-- 舒適度 Cl -->
+                    <!-- 降雨機率 PoP -->
+                </tr>
+                <!-- <tr>
+                    <td>1</td>
+                    <td>嘉義市</td>
+                    <td>天氣狀況(Wx)</td>
+                    <td>降雨機率(PoP)</td>
+                    <td>最低溫(MinT)</td>
+                    <td>舒適度(CI)</td>
+                    <td>最高溫(MaxT)</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
     <!-------------------------------------------------------- 內容 -------------------------------------------------------->
 
     <!-- datatable js cdn.js -->
@@ -84,19 +86,32 @@
                 // console.log(res.records.location);
 
                 let data = res.records.location;
-                console.log('data',data)
+                console.log('data', data)
                 // 天氣狀況 Wx
-                console.log('data[0]',data[0]['weatherElement'][0].time[0].parameter.parameterName)
+                console.log('data[0]', data[0]['weatherElement'][0].time[0].parameter.parameterName)
                 // 降雨百分比 PoP
-                console.log('data[0]',data[0]['weatherElement'][1].time[0].parameter.parameterName)
+                console.log('data[0]', data[0]['weatherElement'][1].time[0].parameter.parameterName)
                 // 最低溫度 MinT
-                console.log('data[0]',data[0]['weatherElement'][2].time[0].parameter.parameterName)
+                console.log('data[0]', data[0]['weatherElement'][2].time[0].parameter.parameterName)
                 // 舒適度 CI
-                console.log('data[0]',data[0]['weatherElement'][3].time[0].parameter.parameterName)
+                console.log('data[0]', data[0]['weatherElement'][3].time[0].parameter.parameterName)
                 // 最高溫度 MaxT
-                console.log('data[0]',data[0]['weatherElement'][4].time[0].parameter.parameterName)
-                
-               
+                console.log('data[0]', data[0]['weatherElement'][4].time[0].parameter.parameterName)
+
+                $('tbody').append(
+                            `       
+                             <tr>
+                                <td>1</td>
+                                <td>${data[0].locationName}</td>
+                                <td>${data[0]['weatherElement'][0].time[0].parameter.parameterName}</td>
+                                <td>${data[0]['weatherElement'][1].time[0].parameter.parameterName}</td>
+                                <td>${data[0]['weatherElement'][2].time[0].parameter.parameterName}</td>
+                                <td>${data[0]['weatherElement'][3].time[0].parameter.parameterName}</td>
+                                <td>${data[0]['weatherElement'][4].time[0].parameter.parameterName}</td>
+                            </tr>
+                            `
+                )
+
             }
         })
     </script>
