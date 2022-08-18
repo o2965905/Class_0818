@@ -1,4 +1,3 @@
-<!-- bs 版本 -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,187 +6,156 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
-    <!-------------------------------------------------------- 引入 -------------------------------------------------------->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
-        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <!-------------------------------------------------------- 引入 -------------------------------------------------------->
+
 
 </head>
 
 <body>
-    <!-------------------------------------------------------- 內容 -------------------------------------------------------->
-    <div class="container-fluid">
-        <!-- title -->
+    <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3 class="text-center">天氣資料</h3>
+                <h3 class="text-center">datatable 天氣資料</h3>
             </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <!-- table -->
-        <table class="table table-striped">
-            <tbody>
+    <div class="container-fluid mt-5">
+        <table id="table_id" class="table table-striped table-hover">
+            <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>id</th>
                     <th>縣市</th>
-                    <th>天氣狀況(整天)</th>
-                    <th>天氣狀況(白天)</th>
-                    <th>天氣狀況(晚上)</th>
-                    <th>最低溫(MinT)</th>
-                    <th>最高溫(MaxT)</th>
-                    <th>舒適度(CI)</th>
-                    <th>降雨機率(PoP)</th>
-                    <!-- 天氣現象 Wx -->
-                    <!-- 最低溫度 MinT -->
-                    <!-- 最高溫度 MaxT -->
-                    <!-- 舒適度 Cl -->
-                    <!-- 降雨機率 PoP -->
+                    <th>時間一</th>
+                    <th>時間二</th>
+                    <th>時間三</th>
                 </tr>
-                <!-- <tr>
-                    <td>1</td>
-                    <td>嘉義市</td>
-                    <td>天氣狀況(Wx)
-                        <img src="./img/day/18.svg">
-                    </td>
-                    <td>降雨機率(PoP)</td>
-                    <td>最低溫(MinT)</td>
-                    <td>舒適度(CI)</td>
-                    <td>最高溫(MaxT)</td>
-                </tr> -->
+            </thead>
+            <tbody>
+
+
             </tbody>
         </table>
     </div>
-    <!-------------------------------------------------------- 內容 -------------------------------------------------------->
 
-    <!-- datatable js cdn.js -->
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js">
-    </script>
-    <script src="./myToken/my.js"></script>
+
+
+    <!-- 先載入 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+        integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
+        crossorigin="anonymous"></script>
+
+    <!-- datatable -->
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
+
+    <!-- dataUrl -->
+    <script src="./myToken/token.js"></script>
+
+    <!-- 先載入 END-->
     <script>
-        /*-----------------------------------------------------------------------------------------------------------------------------------*/
-        // 加入判斷式，判斷 白天 或 晚上
-        // 0 = 晚上
-        // 6 = 白天
-        // 12 = 白天
-        // 18 = 晚上
 
-        const hourArr = [];
-        hourArr[0] = '凌晨';
-        hourArr[6] = '白天';
-        hourArr[12] = '下午';
-        hourArr[18] = '晚上';
-        // console.log('hourArr', hourArr);
-        // console.log('hourArr', hourArr[0]);
-        /*-----------------------------------------------------------------------------------------------------------------------------------*/
+        $(document).ready(function () {
 
-        // ajax
-        $.ajax({
-            dataType: 'json',
+            $.ajax({
+                type: "get",
+                url: "https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-C0032-001?Authorization=CWB-77F7EF76-6578-458C-ACDF-72ABF4BE7727&downloadType=WEB&format=JSON",
+                dataType: 'json',
+                success: function (result) {
+                    data = result.cwbopendata.dataset.location;
+                    console.log('data', data);
 
-            //自己的key => url: 變數
-            url: my,
+                    //抓出三段時間 放在table的th1 時間一 時間二 時間三
+                    //day 
+                    //night
 
-            //政府公開的API
-            // url: 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=rdec-key-123-45678-011121314',
+                    //0 night 
+                    //6 day
+                    //12 day
+                    //18 night
 
-            // data: 
-            success: function (res) {
-                // console.log(res);
-                // console.log(res.records.location);
+                    const hourArr = [];
+                    hourArr[0] = "凌晨";
+                    hourArr[6] = "白天";
+                    hourArr[12] = "下午";
+                    hourArr[18] = "晚上";
+                    console.log('hourArr', hourArr);
 
-                let data = res.records.location;
-                /*-----------------------------------------------------------------------------------------------------------------------------------*/
-                // 白天或晚上 時間
+                    const time0 = new Date(data[0].weatherElement[0].time[0].startTime);
+                    const time1 = new Date(data[0].weatherElement[0].time[1].startTime);
+                    const time2 = new Date(data[0].weatherElement[0].time[2].startTime);
+                    timeText0 = `${time0.getFullYear()} / ${time0.getMonth()+1} / ${time0.getDate()} ${hourArr[time0.getHours()]}`;
+                    timeText1 = `${time1.getFullYear()} / ${time1.getMonth()+1} / ${time1.getDate()} ${hourArr[time1.getHours()]}`;
+                    timeText2 = `${time2.getFullYear()} / ${time2.getMonth()+1} / ${time2.getDate()} ${hourArr[time2.getHours()]}`;
+                    // console.log('time0', time0);
+                    console.log('timeText0', timeText0);
+                    console.log('timeText1', timeText1);
+                    console.log('timeText2', timeText2);
 
-                const time0 = new Date(data[0].weatherElement[0].time[0].startTime);
-                const time1 = new Date(data[0].weatherElement[0].time[1].startTime);
-                const time2 = new Date(data[0].weatherElement[0].time[2].startTime);
+                    $('tr>th').eq(2).text(timeText0);
+                    $('tr>th').eq(3).text(timeText1);
+                    $('tr>th').eq(4).text(timeText2);
 
-                // console.log('time0', time0);
-                // console.log('time1', time1);
-                // console.log('time2', time2);
+                    const iconText0 = (time0.getHours() == 6 || time0.getHours() == 12) ? 'day' : 'night';
+                    const iconText1 = (time1.getHours() == 6 || time1.getHours() == 12) ? 'day' : 'night';
+                    const iconText2 = (time2.getHours() == 6 || time2.getHours() == 12) ? 'day' : 'night';
+                    
+                    console.log('iconText0',iconText0);
+                    
 
-                // 時間格式轉換
-                let timeText0 =
-                    ` ${time0.getFullYear()} / ${time0.getMonth()+1} / ${time0.getDate()} / ${time0.getHours()} `;
-                let timeText1 =
-                    ` ${time1.getFullYear()} / ${time1.getMonth()+1} / ${time1.getDate()} / ${time1.getHours()} `;
-                let timeText2 =
-                    ` ${time2.getFullYear()} / ${time2.getMonth()+1} / ${time2.getDate()} / ${time2.getHours()} `;
-
-                console.log('timeText0', timeText0)
-                console.log('timeText1', timeText1)
-                console.log('timeText2', timeText2)
-
-                // $('tr>th').eq(2).text(timeText0);
-                // $('tr>th').eq(3).text(timeText1);
-                // $('tr>th').eq(4).text(timeText2);
-
-                const iconText0 = (time0.getHours() == 6 || time0.getHours == 12) ? 'day' : 'night';
-                const iconText1 = (time1.getHours() == 6 || time1.getHours == 12) ? 'day' : 'night';
-                const iconText2 = (time2.getHours() == 6 || time2.getHours == 12) ? 'day' : 'night';
-                /*-----------------------------------------------------------------------------------------------------------------------------------*/
-                // 天氣data資料
-
-                console.log('data', data)
-
-                // 天氣狀況 Wx
-                console.log('data[0]', data[0]['weatherElement'][0].time[0].parameter.parameterName)
-                // 降雨百分比 PoP
-                console.log('data[0]', data[0]['weatherElement'][1].time[0].parameter.parameterName)
-                // 最低溫度 MinT
-                console.log('data[0]', data[0]['weatherElement'][2].time[0].parameter.parameterName)
-                // 舒適度 CI
-                console.log('data[0]', data[0]['weatherElement'][3].time[0].parameter.parameterName)
-                // 最高溫度 MaxT
-                console.log('data[0]', data[0]['weatherElement'][4].time[0].parameter.parameterName)
-                /*-----------------------------------------------------------------------------------------------------------------------------------*/
-                for (let i = 0; i < data.length; i++) {
-                    $('tbody').append(
-                        `       
-                             <tr>
-                                <th>${i+1}</th>
-                                <th>${data[i].locationName}</th>
-                                <th>
-                                ${data[i]['weatherElement'][0].time[0].parameter.parameterName} 
-                                <img src="./img/${iconText0}/${data[i]['weatherElement'][0].time[0].parameter.parameterValue}.svg" style="width:20%">
-                                </th>
-                                <th>
-                                ${data[i]['weatherElement'][0].time[2].parameter.parameterName} 
-                                <img src="./img/${iconText2}/${data[i]['weatherElement'][0].time[2].parameter.parameterValue}.svg" style="width:20%">
-                                </th>
-                                <th>
-                                ${data[i]['weatherElement'][0].time[1].parameter.parameterName}
-                                <img src="./img/${iconText1}/${data[i]['weatherElement'][0].time[1].parameter.parameterValue}.svg" style="width:20%">
-                                </th>
-                                <th>${data[i]['weatherElement'][2].time[0].parameter.parameterName}</th>
-                                <th>${data[i]['weatherElement'][4].time[0].parameter.parameterName}</th>
-                                <th>${data[i]['weatherElement'][3].time[0].parameter.parameterName}</th>
-                                <th>${data[i]['weatherElement'][1].time[0].parameter.parameterName}</th>
+                    for (let i = 0; i < data.length; i++) {
+                        $('tbody').append(`
+                            <tr>
+                                <td>${i + 1}</td>
+                                <td>${data[i].locationName}</td>
+                                <td>
+                                    ${data[i].weatherElement[0].time[0].parameter.parameterName} 
+                                    ${data[i].weatherElement[2].time[0].parameter.parameterName} -
+                                    ${data[i].weatherElement[1].time[0].parameter.parameterName}
+                                    &deg;C
+                                    <img src="./img/${iconText0}/${data[i].weatherElement[0].time[0].parameter.parameterValue}.svg" 
+                                    alt="${data[i].weatherElement[1].time[0].parameter.parameterValue}.svg" style="float;width:3rem">
+                                </td>
+                                <td>
+                                    ${data[i].weatherElement[0].time[1].parameter.parameterName} 
+                                    ${data[i].weatherElement[2].time[1].parameter.parameterName} -
+                                    ${data[i].weatherElement[1].time[1].parameter.parameterName}
+                                    &deg;C
+                                    <img src="./img/${iconText1}/${data[i].weatherElement[0].time[1].parameter.parameterValue}.svg" 
+                                    alt="${data[i].weatherElement[1].time[0].parameter.parameterValue}.svg" style="float;width:3rem">
+                                </td>
+                                <td>
+                                    ${data[i].weatherElement[0].time[2].parameter.parameterName} 
+                                    ${data[i].weatherElement[2].time[2].parameter.parameterName} -
+                                    ${data[i].weatherElement[1].time[2].parameter.parameterName}
+                                    &deg;C
+                                    <img src="./img/${iconText2}/${data[i].weatherElement[0].time[2].parameter.parameterValue}.svg" 
+                                    alt="${data[i].weatherElement[1].time[0].parameter.parameterValue}.svg" style="float;width:3rem">
+                                </td>
                             </tr>
-                            `
-                    )
-                }
+                        `);
+                    }
+                    
 
-            }
-        })
+                    $('#table_id').DataTable();
+
+                }
+            });
+
+        });
+
+
     </script>
+
 
 </body>
 
