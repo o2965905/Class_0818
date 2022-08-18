@@ -78,20 +78,21 @@
     </script>
     <script src="./myToken/my.js"></script>
     <script>
-        // 加入判斷是 判斷 白天 或 晚上
+/*-----------------------------------------------------------------------------------------------------------------------------------*/
+        // 加入判斷式，判斷 白天 或 晚上
         // 0 = 晚上
         // 6 = 白天
         // 12 = 白天
         // 18 = 晚上
 
-        const hourArr=[];
+        const hourArr = [];
         hourArr[0] = '凌晨';
         hourArr[6] = '白天';
         hourArr[12] = '下午';
         hourArr[18] = '晚上';
-        console.log('hourArr',hourArr);
-        console.log('hourArr',hourArr[0]);
-
+        // console.log('hourArr', hourArr);
+        // console.log('hourArr', hourArr[0]);
+/*-----------------------------------------------------------------------------------------------------------------------------------*/
 
         // ajax
         $.ajax({
@@ -102,14 +103,36 @@
 
             //政府公開的API
             url: 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=rdec-key-123-45678-011121314',
-            
+
             // data: 
             success: function (res) {
                 // console.log(res);
                 // console.log(res.records.location);
 
                 let data = res.records.location;
+/*-----------------------------------------------------------------------------------------------------------------------------------*/ 
+                // 白天或晚上 時間
+
+                const time0 = new Date(data[0].weatherElement[0].time[0].startTime);
+                const time1 = new Date(data[0].weatherElement[0].time[1].startTime);
+                const time2 = new Date(data[0].weatherElement[0].time[2].startTime);
+
+                // console.log('time0', time0);
+                // console.log('time1', time1);
+                // console.log('time2', time2);
+
+                // 時間格式轉換
+                let timeText0 =
+                ` ${time0.getFullYear()} / ${time0.getMonth()+1} / ${time0.getDate()} / ${time0.getHours()} `;
+                ` ${time1.getFullYear()} / ${time1.getMonth()+1} / ${time1.getDate()} / ${time1.getHours()} `;
+                ` ${time2.getFullYear()} / ${time2.getMonth()+1} / ${time2.getDate()} / ${time2.getHours()} `;
+
+                console.log('timeText0',timeText0) 
+/*-----------------------------------------------------------------------------------------------------------------------------------*/
+                // 天氣data資料
+
                 console.log('data', data)
+
                 // 天氣狀況 Wx
                 console.log('data[0]', data[0]['weatherElement'][0].time[0].parameter.parameterName)
                 // 降雨百分比 PoP
@@ -120,10 +143,10 @@
                 console.log('data[0]', data[0]['weatherElement'][3].time[0].parameter.parameterName)
                 // 最高溫度 MaxT
                 console.log('data[0]', data[0]['weatherElement'][4].time[0].parameter.parameterName)
-
-                for(let i=0;i<data.length;i++){
-                $('tbody').append(
-                            `       
+/*-----------------------------------------------------------------------------------------------------------------------------------*/
+                for (let i = 0; i < data.length; i++) {
+                    $('tbody').append(
+                        `       
                              <tr>
                                 <td>${i+1}</td>
                                 <td>${data[i].locationName}</td>
@@ -136,8 +159,8 @@
                                 <td>${data[i]['weatherElement'][4].time[0].parameter.parameterName}</td>
                             </tr>
                             `
-                )
-            }
+                    )
+                }
 
             }
         })
