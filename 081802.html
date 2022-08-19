@@ -46,13 +46,13 @@
                 <tr>
                     <th>ID</th>
                     <th>縣市</th>
-                    <th>天氣狀況(整天)</th>
                     <th>天氣狀況(白天)</th>
+                    <th>天氣狀況(下午)</th>
                     <th>天氣狀況(晚上)</th>
-                    <th>降雨機率(PoP)</th>
                     <th>最低溫(MinT)</th>
-                    <th>舒適度(CI)</th>
                     <th>最高溫(MaxT)</th>
+                    <th>降雨機率(PoP)</th>
+                    <th>舒適度(CI)</th>
                     <!-- 天氣現象 Wx -->
                     <!-- 最低溫度 MinT -->
                     <!-- 最高溫度 MaxT -->
@@ -176,10 +176,10 @@
                                 ${data[i]['weatherElement'][0].time[1].parameter.parameterName}
                                 <img src="./img/${iconText1}/${data[i]['weatherElement'][0].time[1].parameter.parameterValue}.svg" style="width:20%">
                                 </th>
-                                <th>${data[i]['weatherElement'][1].time[0].parameter.parameterName}</th>
                                 <th>${data[i]['weatherElement'][2].time[0].parameter.parameterName}</th>
-                                <th>${data[i]['weatherElement'][3].time[0].parameter.parameterName}</th>
                                 <th>${data[i]['weatherElement'][4].time[0].parameter.parameterName}</th>
+                                <th>${data[i]['weatherElement'][1].time[0].parameter.parameterName}</th>
+                                <th>${data[i]['weatherElement'][3].time[0].parameter.parameterName}</th>
                             </tr>
                             `
                     )
